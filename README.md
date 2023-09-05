@@ -24,7 +24,7 @@ A blanked out phrase will appear like:
 - Enter ONE LETTER at a time, then Press Enter or Return
 - If letter is in phrase, all occurences will appear, your score increases by 1 point
 - If letter is not in phrase, your score decreases by 1 point
-- If you guess a vowel in the phrase, then no change in score
+- If you correctly guess a vowel in the phrase, then no change in score
 - You begin with score = 1; this ensures a maximum of two incorrect guesses for the game to end
 - Do not guess spaces as that is already indicated
 - IMPORTANT NOTE: There is no puncuation marks in any displayed phrase

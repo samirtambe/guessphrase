@@ -12,21 +12,25 @@ def cls(seconds=1):
 
 # Intro Screen to show how game works
 cls(0)
-print("**************************************************************************")
-print("*   Welcome to ===>>> GUESS THE PHRASE! <<<===\n")
-print("*   By Samir Tambe | License: MIT License\n")
-print("*   INSTRUCTIONS:")
-print("*   A blanked out phrase will appear like so:\n")
-print("*   ---- - -- ----- ------- -- --- ----- -------- ------\n")
-print("*   > Enter ONE LETTER, Press Enter or Return")
-print("*   > If letter is in phrase, all occurences will appear | increase score")
-print("*   > If letter is not in phrase | decrease score ")
-print("*   > If you guess a vowel in the phrase, then no change in score")
-print("*   > NOTE: There is no puncuation in the phrase")
-print("*   > Guess all letters to win the game ")
-print("*   > Enter . to quit the game at any time")
-print("**************************************************************************")
-input("Press any key to continue.")
+def showhelp():
+    print("**************************************************************************")
+    print("*   Welcome to ===>>> GUESS THE PHRASE! <<<===\n")
+    print("*   By Samir Tambe | License: MIT License\n")
+    print("*   INSTRUCTIONS:")
+    print("*   A blanked out phrase will appear like so:\n")
+    print("*   ---- - -- ----- ------- -- --- ----- -------- ------\n")
+    print("*   > Enter ONE LETTER, Press Enter or Return")
+    print("*   > If letter is in phrase, all occurences will appear | increase score")
+    print("*   > If letter is not in phrase | decrease score ")
+    print("*   > If you guess a vowel in the phrase, then no change in score")
+    print("*   > Start with score = 1; a maximum of two incorrect guesses for the game to end")
+    print("*   > Do not guess spaces as that is already indicated")
+    print("*   > IMPORTANT NOTE: There is no puncuation marks in any displayed phrase")
+    print("*   > Guess all letters to win the game ")
+    print("*   > If your score drops below zero the game will exit")
+    print("*   > Enter . to quit the game")
+    print("**************************************************************************")
+    input("Press ANY KEY to continue...")
 
 phraseList = list()
 fileHandle = open('phrases.txt')
@@ -53,6 +57,7 @@ while complete == False:
     if firstIteration == False:
         cls(0)
         letterOfPhrase = [letter if letter in correctGuesses else '-' for letter in phrase]
+        print("GUESS PHRASE | enter ? for help")
         print("Score : ", score, "\n")
         print("".join(letterOfPhrase))
         print()
@@ -66,6 +71,10 @@ while complete == False:
     if ui == '.':
         quit()
     # if user enters input that is more than ONE character or a number then 
+    elif ui == '?':
+        cls(0)
+        showhelp()
+        continue
     elif len(ui) > 1 or ui in numberGuesses:
         print('Invalid Input. Only ONE letter allowed. No change in score')
         time.sleep(2)
@@ -91,5 +100,6 @@ while complete == False:
         score -= 1
         print(ui,'is not in phrase.')
         if score < 0:
-            print("You guessed incorrectly too many times and your score is below ZERO. Game Over.")
-        time.sleep(1)
+            print(f"Too many wrong guesses reduced score to {score} which is below zero. Better luck next time!")
+            quit()
+        time.sleep(2)

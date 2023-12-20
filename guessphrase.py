@@ -23,7 +23,7 @@ def showhelp():
     print("*   > If letter is in phrase, all occurences will appear | increase score")
     print("*   > If letter is not in phrase | decrease score ")
     print("*   > If you correctly guess a vowel in the phrase, then no change in score")
-    print("*   > Start with score = 1; a maximum of two incorrect guesses for the game to end")
+    print("*   > Start with score=1; Maximum of two incorrect guesses for Game to end")
     print("*   > Do not guess spaces as that is already indicated")
     print("*   > IMPORTANT NOTE: There is no puncuation marks in any displayed phrase")
     print("*   > Guess all letters to win the game ")
